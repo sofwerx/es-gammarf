@@ -1,0 +1,18 @@
+version: '2.1'
+
+services:
+
+  gammarf:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sofwerx/gammarf
+    container_name: gammarf
+    hostname: gammarf
+    environment:
+      GAMMARF_ELASTICSEARCH_URL: ${GAMMARF_ELASTICSEARCH_URL}
+      GAMMARF_ELASTICSEARCH_USERNAME: ${GAMMARF_ELASTICSEARCH_USERNAME}
+      GAMMARF_ELASTICSEARCH_PASSWORD: ${GAMMARF_ELASTICSEARCH_PASSWORD}
+      GAMMARF_STATION_ID: ${GAMMARF_STATION_ID}
+      GAMMARF_STATION_PASS: ${GAMMARF_STATION_PASS}
+
