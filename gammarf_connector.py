@@ -222,7 +222,7 @@ class ConnectorWorker(threading.Thread):
         m.update((self.station_pass + data['rand'])
                 .encode('utf-8'))
         data['sign'] = m.hexdigest()[:12]
-        data['timestamp'] = datetime.datetime
+        data['timestamp'] = datetime.datetime.utcnow().isoformat()
 
         try:
             self.datsock.send_string(json.dumps(data), zmq.NOBLOCK)
@@ -249,7 +249,7 @@ class ConnectorWorker(threading.Thread):
             m.update((self.station_pass + data['rand'])
                     .encode('utf-8'))
             data['sign'] = m.hexdigest()[:12]
-            data['timestamp'] = datetime.datetime
+            data['timestamp'] = datetime.datetime.utcnow().isoformat()
             for i in range(CMD_ATTEMPTS):
                 try:
                     self.cmdsock.send_string(json.dumps(data), zmq.NOBLOCK)
