@@ -4,9 +4,9 @@ FROM ubuntu:xenial
 RUN apt update
 RUN apt install -y wget git build-essential cmake gpsd gpsd-clients libusb-1.0-0-dev \
  vim librtlsdr-dev python3-dev python3-pip pkg-config libfftw3-dev libhackrf-dev \
- git curl
+ usbutils tmux screen git curl supervisor procps net-tools bsdutils
 
-RUN git clone -b es-gammarf https://github.com/sofwerx/gammarf /gammarf
+RUN git clone https://github.com/sofwerx/gammarf /gammarf
 
 WORKDIR /gammarf
 
@@ -111,10 +111,8 @@ WORKDIR $GOPATH
 # Build gotty
 RUN go get github.com/yudai/gotty
 
-ENV GAMMARF_ELASTICSEARCH_URL=http://localhost:9200/gammarf/rf GAMMARF_ELASTICSEARCH_USERNAME=elastic GAMMARF_ELASTICSEARCH_PASSWORD=elastic GAMMARF_STATION_ID=demo GAMMARF_STATION_PASS=demo1234
+ENV GAMMARF_ELASTICSEARCH_URL=http://localhost:9200/gammarf/rf GAMMARF_ELASTICSEARCH_USERNAME=elastic GAMMARF_ELASTICSEARCH_PASSWORD=changeme GAMMARF_STATION_ID=demo GAMMARF_STATION_PASS=demo1234
 
-RUN apt-get update
-RUN apt-get install -y usbutils tmux
 
 WORKDIR /gammarf
 
