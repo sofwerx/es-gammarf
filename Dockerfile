@@ -7,9 +7,10 @@ RUN apt install -y wget git build-essential cmake gpsd gpsd-clients libusb-1.0-0
  usbutils tmux screen git curl supervisor procps net-tools bsdutils
 
 RUN git clone https://github.com/sofwerx/gammarf /gammarf
-RUN git reset --hard c40873c055edd2996be83707445fe3eaee13d60a
 
 WORKDIR /gammarf
+
+RUN git reset --hard c40873c055edd2996be83707445fe3eaee13d60a
 
 # hackrf
 RUN curl -sL https://github.com/mossmann/hackrf/releases/download/v2017.02.1/hackrf-2017.02.1.tar.xz | tar xJf - -C /tmp \
