@@ -229,7 +229,7 @@ class ConnectorWorker(threading.Thread):
             url=os.environ.get('GAMMARF_ELASTICSEARCH_URL')
             username=os.environ.get('GAMMARF_ELASTICSEARCH_USERNAME')
             password=os.environ.get('GAMMARF_ELASTICSEARCH_PASSWORD')
-            headers={'Content-Type': 'application/json', 'X-HTTP-Method-Overide': 'PUT', 'Accept-Charset': 'UTF-8'}
+            headers={'Content-Type': 'application/json', 'X-HTTP-Method-Override': 'PUT', 'Accept-Charset': 'UTF-8'}
             r = requests.post(url, data=json.dumps(data), headers=headers, auth=HTTPBasicAuth(username, password))
         except Exception as e:
             pass
