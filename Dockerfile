@@ -4,7 +4,7 @@ FROM ubuntu:xenial
 RUN apt update
 RUN apt install -y wget git build-essential cmake gpsd gpsd-clients libusb-1.0-0-dev \
  vim librtlsdr-dev python3-dev python3-pip pkg-config libfftw3-dev libhackrf-dev \
- usbutils tmux screen git curl supervisor procps net-tools bsdutils
+ usbutils tmux screen git curl supervisor procps net-tools bsdutils bash
 
 RUN git clone https://github.com/sofwerx/gammarf /gammarf
 
