@@ -6,11 +6,9 @@ RUN apt install -y wget git build-essential cmake gpsd gpsd-clients libusb-1.0-0
  vim librtlsdr-dev python3-dev python3-pip pkg-config libfftw3-dev libhackrf-dev \
  usbutils tmux screen git curl supervisor procps net-tools bsdutils bash
 
-RUN git clone https://github.com/sofwerx/gammarf /gammarf
+RUN git clone -b simple https://github.com/sofwerx/gammarf /gammarf
 
 WORKDIR /gammarf
-
-RUN git reset --hard c40873c055edd2996be83707445fe3eaee13d60a
 
 # hackrf
 RUN curl -sL https://github.com/mossmann/hackrf/releases/download/v2017.02.1/hackrf-2017.02.1.tar.xz | tar xJf - -C /tmp \
@@ -35,12 +33,12 @@ RUN git clone https://github.com/keenerd/rtl-sdr /tmp/rtl-sdr \
  && cd /tmp \
  && rm -fr /tmp/rtl-sdr
 
-RUN cd /gammarf/3rdparty/librtlsdr-2freq \
- && mkdir build \
- && cd build \
- && cmake .. \
- && make \
- && make install
+#RUN cd /gammarf/3rdparty/librtlsdr-2freq \
+ #&& mkdir build \
+ #&& cd build \
+ #&& cmake .. \
+ #&& make \
+ #&& make install
 
 # tpms
 RUN git clone https://github.com/merbanan/rtl_433 /tmp/rtl_433 \

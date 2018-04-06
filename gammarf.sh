@@ -8,7 +8,7 @@ cd /gammarf
 
 cat <<EOF > gammarf.conf
 [modules]
-modules = scanner, adsb, freqwatch, remotetask, p25rx, snapshot, tpms
+modules = scanner, adsb, freqwatch, remotetask, p25rx, snapshot, ism433, single
 
 [connector]
 station_id = ${GAMMARF_STATION_ID}
