@@ -6,7 +6,8 @@ RUN apt-get update \
  vim librtlsdr-dev python3-dev python3-pip pkg-config libfftw3-dev libhackrf-dev \
  usbutils tmux screen git curl supervisor procps net-tools bsdutils bash
 
-RUN git clone -b simple https://github.com/sofwerx/gammarf /gammarf
+RUN echo "Ignore this layer, docker caches stupid"
+RUN git clone https://github.com/sofwerx/gammarf /gammarf
 
 WORKDIR /gammarf
 
